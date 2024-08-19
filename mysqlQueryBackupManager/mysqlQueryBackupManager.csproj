@@ -52,6 +52,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctlHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlHistory.Designer.cs">
+      <DependentUpon>ctlHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctlWork.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlWork.Designer.cs">
+      <DependentUpon>ctlWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctlSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlSetting.Designer.cs">
+      <DependentUpon>ctlSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -63,6 +81,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager.cs" />
     <Compile Include="SessionModel.cs" />
+    <EmbeddedResource Include="ctlHistory.resx">
+      <DependentUpon>ctlHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlWork.resx">
+      <DependentUpon>ctlWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlSetting.resx">
+      <DependentUpon>ctlSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

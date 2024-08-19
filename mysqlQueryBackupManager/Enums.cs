@@ -11,7 +11,8 @@ namespace mysqlQueryBackupManager
         선택 = 0,
         한번 = 1,
         매월 = 2,
-        매주 = 3
+        매주 = 3,
+        매일 = 4
     }
 
 }

@@ -2,6 +2,7 @@
 {
     public class SessionModel
     {
+        public int Seq { get; set; }
         public string Name { get; set; }
         public string HostName { get; set; }
         public string UserId { get; set; }

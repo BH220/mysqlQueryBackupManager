@@ -20,6 +20,34 @@ namespace mysqlQueryBackupManager
             InitializeComponent();
         }
 
+        private void ctkWork1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ctkHistory1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ctlSetting1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+                ctlWork1.LoadData();
+            else if (tabControl1.SelectedIndex == 1)
+                ctlHistory1.LoadData();
+            else if (tabControl1.SelectedIndex == 2)
+                ctlSetting1.LoadData();
+        }
+
+
+
+        /*
         protected override void OnLoad(EventArgs e)
         {
             SessionData = SessionManager.Instance.Data;
@@ -27,38 +55,7 @@ namespace mysqlQueryBackupManager
             base.OnLoad(e);
         }
 
-        private void tbNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // 숫자와 제어 문자(백스페이스)만 허용
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true; // 숫자나 제어 문자가 아니면 입력을 무시
-            }
-        }
-
-        private void tbNumber_TextChanged(object sender, EventArgs e)
-        {
-            // 정수만 포함되도록 텍스트를 필터링
-            TextBox textBox = sender as TextBox;
-            if (textBox != null)
-            {
-                string newText = "";
-                foreach (char c in textBox.Text)
-                {
-                    if (char.IsDigit(c)) // 숫자만 허용
-                    {
-                        newText += c;
-                    }
-                }
-
-                if (textBox.Text != newText)
-                {
-                    int selectionStart = textBox.SelectionStart - (textBox.Text.Length - newText.Length);
-                    textBox.Text = newText;
-                    textBox.SelectionStart = Math.Max(0, selectionStart);
-                }
-            }
-        }
+        
 
         private void rbUseSsh_CheckedChanged(object sender, EventArgs e)
         {
@@ -89,28 +86,7 @@ namespace mysqlQueryBackupManager
             }
         }
 
-        private void btnSelectPemPpk_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "PPK or PEM Files (*.ppk;*.pem)|*.ppk;*.pem";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    tbSshPemPpk.Text = ofd.FileName;
-                }
-            }
-        }
-
-        private void btnSelectSaveFolder_Click(object sender, EventArgs e)
-        {
-            using(FolderBrowserDialog fbd = new FolderBrowserDialog())
-            {
-                if(fbd.ShowDialog() == DialogResult.OK)
-                {
-                    tbSavePath.Text = fbd.SelectedPath;
-                }
-            }
-        }
+         
 
         private void cmbRepeat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -181,13 +157,6 @@ namespace mysqlQueryBackupManager
             }
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            if(BhMsgBox.Confirm("삭제하시겠습니까?", "삭제") == DialogResult.OK)
-            {
-                MessageBox.Show("삭제처리");
-            }
-        }
 
         private void LoadSettingInfo(SessionModel sessionInfo)
         {
@@ -202,13 +171,7 @@ namespace mysqlQueryBackupManager
 
         private void gridSetting_DataSourceChanged(object sender, EventArgs e)
         {
-            foreach(DataGridViewColumn dgc in gridSetting.Columns)
-            {
-                if(!( dgc.DataPropertyName == "Name" || dgc.DataPropertyName == "HostName"))
-                {
-                    dgc.Visible = false;
-                }
-            }
+            
         }
 
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
@@ -228,8 +191,10 @@ namespace mysqlQueryBackupManager
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            rbNouseSsh.Checked = true;
+            cmbRepeat.SelectedIndex = 0;
         }
+        */
     }
 }
 

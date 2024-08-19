@@ -27,18 +27,28 @@ namespace mysqlQueryBackupManager
             }
         }
 
+        private string JsonPath
+        {
+            get
+            {
+                string pp = Application.StartupPath + "\\Data";
+                if (Directory.Exists(pp) == false) Directory.CreateDirectory(pp);
+                string fp = pp + "\\SessionData.json";
+                if (File.Exists(fp) == false)
+                    File.WriteAllText(fp, JsonConvert.SerializeObject(Data));
+                return fp;
+            }
+        }
+
         public void InitLoad()
         {
-            string pp = Application.StartupPath + "\\Data";
-            if(Directory.Exists(pp) == false) Directory.CreateDirectory(pp);
-            string fp = pp + "\\SessionData.json";
-            if(File.Exists(fp) == false)
-            {
-                List<SessionModel> data = new List<SessionModel>();
-                File.WriteAllText(fp, JsonConvert.SerializeObject(data));
-            }
-            string jsonStr = File.ReadAllText(fp);
+            string jsonStr = File.ReadAllText(JsonPath);
             Data = JsonConvert.DeserializeObject<List<SessionModel>>(jsonStr);
+        }
+
+        public void Save()
+        {
+            File.WriteAllText(JsonPath, JsonConvert.SerializeObject(Data));
         }
     }
 }
